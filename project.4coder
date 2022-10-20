@@ -1,0 +1,82 @@
+version(1);
+project_name = "4coder custom";
+
+patterns = {
+"*.c",
+"*.cpp",
+"*.cxx",
+"*.h",
+"*.m",
+"*.mm",
+"*.bat",
+"*.sh",
+"*.4coder",
+"*.txt",
+};
+blacklist_patterns = {
+"stb*",
+"puff.c"
+};
+load_paths_custom = {
+ {"."},
+};
+load_paths = {
+ { load_paths_custom, .os = "win"  },
+ { load_paths_custom, .os = "linux"},
+ { load_paths_custom, .os = "mac"  },
+};
+
+build_assets = "build_assets";
+build_renderer = "build_renderer_opengl";
+build_game = "build_game";
+build_win32 = "build_win32";
+build_test = "test";
+run_win32 = "run_win32";
+debug_win32 = "debug_win32";
+debug_assets = "debug_assets";
+
+
+command_list = {
+ { .name = "build assets",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { build_assets, .os ="win"  }, }, },
+ 
+ { .name = "build game",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { build_game, .os ="win" }, }, },
+ 
+ { .name = "build win32",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { build_win32, .os="win" }, }, },
+ 
+ { .name = "build renderer",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { build_renderer, .os="win" }, }, },
+
+ { .name = "build test",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { build_test, .os="win" }, }, },
+ 
+ { .name = "run win32",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { run_win32, .os="win" }, }, },
+ 
+ 
+ { .name = "debug assets",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { debug_assets, .os="win" }, }, },
+ 
+ { .name = "debug win32",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { { debug_win32, .os="win" }, }, },
+
+ 
+};
+
+fkey_command[1] = "build assets";
+fkey_command[2] = "build game";
+fkey_command[3] = "build renderer";
+fkey_command[4] = "build win32";
+fkey_command[5] = "run win32";
+fkey_command[11] = "debug assets";
+fkey_command[12] = "debug win32";
